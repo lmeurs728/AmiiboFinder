@@ -1,0 +1,16 @@
+@font-face {
+	font-family: DancingScript;
+	src: url("/Dancing_Script/DancingScript-VariableFont_wght.ttf");
+}
+
+h1 {
+	font-family: DancingScript;
+}
+
+.h-50 {
+	height: 50px;
+}
+
+.w-50 {
+	width: 50px;
+}

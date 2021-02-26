@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full flex justify-center">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 2</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="h-full w-full flex flex-col bg-blue-200 rounded-lg">
+
+  <header class="sm:flex bg-white border-green-800 w-full p-4">
+	<h1 class="text-center sm:text-left text-4xl font-bold">Weather App</h1>
+	<div class="flex justify-end flex-grow">
+		<form class="sm:flex text-center sm:text-left my-2 sm:my-0">
+			<label class="text-2xl font-bold mr-2">Enter a U.S. City</label>
+			<input id="weatherInput" class="p-2 border border-gray-500 mr-2 rounded mt-2 sm:mt-0" type="text"></input>
+			<input id="weatherSubmit" class="bg-green-700 text-white p-2 rounded shadow-md" type="submit" value="Submit"></input>
+		</form>
+	</div>
+  </header>
+  
+  <div class="flex-grow flex justify-center">
+	<div id="main-page" class="bg-white w-full m-4 sm:w-3/4 md:w-1/2 rounded-lg">
+		<p id="no-results" class="text-center mt-4">No results, enter a city!</p>
+		<div id="weatherResults"></div>
+		<div id="forecastResults"></div>
+	</div>
+  </div>
+  
+  <footer class="sm:flex bg-white border-green-800 w-full p-4 flex sm:justify-end justify-center">
+	<h3>Github: <a class="text-blue-600 hover:text-blue-200" href="https://github.com/BYU-CS-260-Winter-2021/lab-2-weather-app-lmeurs728">lmeurs728</a></h3>
+  </footer>
+	
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+  <script text="type/javascript" src="/script.js">
+  </script>
+
+</body>
+
+</html>
