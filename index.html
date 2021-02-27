@@ -2,59 +2,51 @@
 <html lang="en" class="h-full flex justify-center">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nintendo Characters</title>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nintendo Characters</title>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/styles.css">
 </head>
 
 <body onload="getNames()" class="h-full w-full flex flex-col rounded-lg">
-  <header class="sm:flex bg-antique-ruby text-alabaster border-green-800 w-full p-4">
-	<h1 class="text-center sm:text-left text-4xl font-bold">Amiibo Finder</h1>
-  </header>
+	<header class="sm:flex bg-antique-ruby text-alabaster border-green-800 w-full p-4">
+		<h1 class="text-center sm:text-left text-4xl font-bold">Amiibo Finder</h1>
+	</header>
 
-  
-  <!--2nd Bar-->
-  <header class="sm:flex bg-tea-green text-charleston-green border-green-800 w-full p-4">
-	<div class="flex flex-grow">
-		<form class="sm:flex text-center sm:text-right my-2 sm:my-0">
-			<input id="search-input" class="p-2 border border-gray-500 mr-2 rounded mt-2 sm:mt-0" type="text"></input>
-			<input id="search-submit" class="bg-green-700 text-white p-2 rounded shadow-md" type="submit" value="Search "></input>
-		</form>
-	</div>
-	<div class="flex justify-end font-bold text-charleston-green text-2xl">
-		<p class="cursor-pointer" onclick="getNames('character')">Character/</p>
-		<p class="cursor-pointer" onclick="getNames('amiiboseries')">Amiibo Series/</p>
-		<p class="cursor-pointer" onclick="getNames('gameseries')">Game Series/</p>
-		<p class="cursor-pointer" onclick="getNames('type')">Type</p>
-	</div>
-  </header>
-  
-
-  <div class="flex-grow flex flex-col">
-	<div class="flex flex-grow justify-center">
-		<div class="bg-timberwolf h-full text-charleston-green rounded-lg w-52">
-			<div id="left-nav-bar"></div>
+	<!--2nd Bar-->
+	<header class="sm:flex bg-tea-green text-charleston-green border-green-800 w-full p-4">
+		<div class="flex flex-grow">
+			<form class="sm:flex text-center sm:text-right my-2 sm:my-0">
+				<input id="search-input" class="p-2 border border-gray-500 mr-2 rounded mt-2 sm:mt-0" type="text"></input>
+				<input id="search-submit" class="bg-green-700 text-white p-2 rounded shadow-md" type="submit" value="Search "></input>
+			</form>
 		</div>
-		<div class="flex-grow flex flex-col bg-white m-4 rounded-lg">
-			<p id="no-results" class="flex-grow text-center mt-4">No results, Click on a name!</p>
-			<div id="results" class="flex-grow"></div>
-			<footer class="sm:flex bg-white border-green-800 w-full p-4 flex sm:justify-end justify-center">
-				<h3>Github: <a class="text-blue-600 hover:text-blue-200" href="https://github.com/BYU-CS-260-Winter-2021/lab-2-weather-app-lmeurs728">lmeurs728</a></h3>
-			</footer>
+		<div class="flex justify-end font-bold text-charleston-green text-2xl">
+			<p class="cursor-pointer" onclick="getNames('character')">Character/</p>
+			<p class="cursor-pointer" onclick="getNames('amiiboseries')">Amiibo Series/</p>
+			<p class="cursor-pointer" onclick="getNames('gameseries')">Game Series/</p>
+			<p class="cursor-pointer" onclick="getNames('type')">Type</p>
+		</div>
+	</header>
+
+	<div class="flex-grow flex flex-col">
+		<div class="flex flex-grow justify-center">
+			<div class="bg-timberwolf h-full text-charleston-green rounded-lg w-52">
+				<div id="left-nav-bar"></div>
+			</div>
+			<div class="flex-grow flex flex-col bg-white m-4 rounded-lg">
+				<p id="no-results" class="flex-grow text-center mt-4">No results, Click on a name!</p>
+				<div id="results" class="flex-grow"></div>
+				<footer class="sm:flex bg-white border-green-800 w-full p-4 flex sm:justify-end justify-center">
+					<h3>Github: <a class="text-blue-600 hover:text-blue-200" href="https://github.com/lmeurs728/AmiiboFinder">lmeurs728</a></h3>
+				</footer>
+			</div>
 		</div>
 	</div>
-  </div>
 
-    
-
-  
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-  <script text="type/javascript" src="/script.js">
-  </script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+	<script text="type/javascript" src="/script.js"></script>
 </body>
 
 </html>
