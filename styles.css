@@ -1,10 +1,10 @@
 @font-face {
-	font-family: DancingScript;
-	src: url("/Dancing_Script/DancingScript-VariableFont_wght.ttf");
+	font-family: Pipe;
+	src: url("/pipe-dream-font/PipeDream-1Zwg.ttf");
 }
 
 h1 {
-	font-family: DancingScript;
+	font-family: Pipe;
 }
 
 .h-50 {

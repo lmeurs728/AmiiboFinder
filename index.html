@@ -23,22 +23,22 @@
 			</form>
 		</div>
 		<div class="flex justify-end font-bold text-charleston-green text-2xl">
-			<p class="cursor-pointer" onclick="getNames('character')">Character/</p>
-			<p class="cursor-pointer" onclick="getNames('amiiboseries')">Amiibo Series/</p>
-			<p class="cursor-pointer" onclick="getNames('gameseries')">Game Series/</p>
-			<p class="cursor-pointer" onclick="getNames('type')">Type</p>
+			<p class="cursor-pointer sm:block" onclick="getNames('character')">Character/</p>
+			<p class="cursor-pointer sm:block" onclick="getNames('amiiboseries')">Amiibo Series/</p>
+			<p class="cursor-pointer sm:block" onclick="getNames('gameseries')">Game Series/</p>
+			<p class="cursor-pointer sm:block" onclick="getNames('type')">Type</p>
 		</div>
 	</header>
 
 	<div class="flex-grow flex flex-col">
 		<div class="flex flex-grow justify-center">
-			<div class="bg-timberwolf h-full text-charleston-green rounded-lg w-52">
+			<div class="bg-timberwolf h-full text-charleston-green w-52">
 				<div id="left-nav-bar"></div>
 			</div>
-			<div class="flex-grow flex flex-col bg-white m-4 rounded-lg">
+			<div class="flex-grow flex flex-col bg-white rounded-lg">
 				<p id="no-results" class="flex-grow text-center mt-4">No results, Click on a name!</p>
 				<div id="results" class="flex-grow"></div>
-				<footer class="sm:flex bg-white border-green-800 w-full p-4 flex sm:justify-end justify-center">
+				<footer class="sm:flex bg-tea-green border-green-800 w-full p-4 flex sm:justify-end justify-center">
 					<h3>Github: <a class="text-blue-600 hover:text-blue-200" href="https://github.com/lmeurs728/AmiiboFinder">lmeurs728</a></h3>
 				</footer>
 			</div>

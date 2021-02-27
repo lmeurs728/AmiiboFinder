@@ -1,5 +1,6 @@
 var mainList;
 var mainQueryType;
+
 function getNames(queryType = "character") {
 	mainQueryType = queryType;
 	const url = "https://www.amiiboapi.com/api/" + queryType;
