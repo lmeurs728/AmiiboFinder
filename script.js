@@ -9,7 +9,7 @@ function getNames(queryType = "character") {
 			return response.json();
 		}).then(function(json) {
 			mainList = json.amiibo;
-			let results = '<div class="h-full">';
+			let results = '<div class="h-full w-52">';
 			mainList.forEach(character => {
 				results += `<button class="block px-3 py-1 hover:bg-charleston-green hover:text-tea-green w-full" onclick="getInfo('${character.key}', '${queryType}')">${character.name}</button>`;
 			})
@@ -25,9 +25,17 @@ function getInfo(key, queryType) {
 		.then(function(response) {
 			return response.json();
 		}).then(function(json) {
-			let results = '<div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">';
+			let results = "";
+			if (queryType === "character") {
+				results += `<button onclick="getCharacterGames('${key}')">Get Character Games</button>`
+			}
+			results += '<div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">';
 			json.amiibo.forEach(amiibo => {
+				results += `<div class="flex flex-col justify-between">`;
 				results += `<img class="" alt="${amiibo.amiiboSeries}" src="${amiibo.image}"/>`;
+				var jpRelease = amiibo.release.jp ? moment(amiibo.release.jp).format("MMM, YYYY") : "Unknown Date";
+				results += `<p class="text-charleston-green">${jpRelease}</p>`;
+				results += `</div>`;
 			})
 			results += '</div>';
 			document.getElementById("results").innerHTML = results;
@@ -46,3 +54,21 @@ document.getElementById("search-submit").addEventListener("click", event => {
 	results += "</div>";
 	document.getElementById("left-nav-bar").innerHTML = results;
 });
+
+function getCharacterGames(key, queryType) {
+	const url = `https://www.amiiboapi.com/api/amiibo/?character=` + key + "&showgames";
+	fetch(url)
+		.then(function(response) {
+			return response.json();
+		}).then(function(json) {
+			var systems = Object.keys(json.amiibo[0]).filter(name => name.includes("games"));
+
+			let results = "";
+			systems.forEach(system => {
+				json.amiibo[0][system].forEach(game => {
+					results += `${game.gameName}\n`
+				})
+			})
+			alert(results)
+		});
+}
