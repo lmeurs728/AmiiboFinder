@@ -1,63 +1,95 @@
-document.getElementById("weatherSubmit").addEventListener("click", function(event) {
-	event.preventDefault();
-	const value = document.getElementById("weatherInput").value;
-	if (value === "")
-	  return;
-	console.log(value);
-	const url = "http://api.openweathermap.org/data/2.5/weather?q=" + value + ",US&units=imperial" + "&APPID=1b5bce174b3fbef40b04d293ee34a12b";
+var mainList;
+function getNames(queryType = "character") {
+	const url = "https://www.amiiboapi.com/api/" + queryType;
 	fetch(url)
-		.then(function(response) {
-		return response.json();
-		}).then(function(json) {
-			console.log(json)
-			let results = '<div class="bg-gray-100 flex justify-center m-2 p-2 rounded-md border border-gray-500">';
-			for (let i=0; i < json.weather.length; i++) {
-				results += '<img class="mr-5 h-50 w-50" src="http://openweathermap.org/img/w/' + json.weather[i].icon + '.png"/>';
-			}
-			results += '<div class="mt-2">';
-			results += '<h2 class="font-bold">Weather in: ' + json.name + "</h2>";
-			results += '<h2>Current: ' + json.main.temp + " &deg;F</h2>"
-			results += '<div>';
-				results += '<p>High: ' + json.main.temp_max + " &deg;F</p>";
-				results += '<p>Low: ' + json.main.temp_min + " &deg;F</p>";
-			results += '</div>';
-			results += "<p>"
-			for (let i=0; i < json.weather.length; i++) {
-				var description = json.weather[i].description
-				results += description.charAt(0).toUpperCase() + description.slice(1);
-				if (i !== json.weather.length - 1)
-					results += ", "
-			}
-			results += "</p></div></div>";
-			document.getElementById("weatherResults").innerHTML = results;
-		});
-
-		const url2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + value + ", US&units=imperial" + "&APPID=1b5bce174b3fbef40b04d293ee34a12b";
-		fetch(url2)
 		.then(function(response) {
 			return response.json();
 		}).then(function(json) {
-			console.log(json)
-			let forecast = '<div class="sm:grid sm:grid-cols-2">';
-			let day = "";
-			for (let i=0; i < json.list.length; i++) {
-				var forecastDay = moment(json.list[i].dt_txt).format('MMMM Do YYYY');
-				if (day !== forecastDay) {
-					forecast += '<h2 class="sm:col-span-2 text-center font-bold ">' + forecastDay + '</h2>';
-					day = forecastDay;
-				}
-				
-				forecast += '<div class="m-2 bg-gray-100 p-2 rounded-md border border-gray-500 flex">'
-					forecast += '<img class="h-50 w-50" src="http://openweathermap.org/img/w/' + json.list[i].weather[0].icon + '.png"/>'
-					forecast += '<div>';
-						forecast += '<h2 class="font-bold">' + moment(json.list[i].dt_txt).format('h:mm a') + "</h2>";
-						forecast += '<p>Temperature: ' + json.list[i].main.temp + " &deg;F</p>";
-						forecast += '<p>Feels Like: ' + json.list[i].main.feels_like + " &deg;F</p>";
-					forecast += '</div>';
-				forecast += '</div>'
-			}
-			forecast += '</div>';
-			document.getElementById("forecastResults").innerHTML = forecast;
+			mainList = json.amiibo;
+			let results = '<div class="h-full">';
+			mainList.forEach(character => {
+				const key = character.key;
+				results += `<button class="block px-3 py-1 hover:bg-charleston-green hover:text-tea-green w-full" onclick="get${queryType}Info('${key}')">${character.name}</button>`;
+			})
+			results += "</div>";
+			document.getElementById("left-nav-bar").innerHTML = results;
 		});
-		document.getElementById("no-results").style.display = "none";
-  });
+}
+
+function getcharacterInfo(key) { 
+	const url = "https://www.amiiboapi.com/api/amiibo/?character=" + key;
+	fetch(url)
+		.then(function(response) {
+			return response.json();
+		}).then(function(json) {
+			let results = '<div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">';
+			json.amiibo.forEach(amiibo => {
+				results += `<img class="" alt="${amiibo.amiiboSeries}" src="${amiibo.image}"/>`;
+			})
+			results += '</div>';
+			document.getElementById("results").innerHTML = results;
+			document.getElementById("no-results").style.display = "none";
+		});
+}
+
+function getgameseriesInfo(key) { 
+	const url = "https://www.amiiboapi.com/api/amiibo/?gameseries=" + key;
+	fetch(url)
+		.then(function(response) {
+			return response.json();
+		}).then(function(json) {
+			let results = '<div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">';
+			json.amiibo.forEach(amiibo => {
+				results += `<img class="" alt="${amiibo.amiiboSeries}" src="${amiibo.image}"/>`;
+			})
+			results += '</div>';
+			document.getElementById("results").innerHTML = results;
+			document.getElementById("no-results").style.display = "none";
+		});
+}
+
+function getamiiboseriesInfo(key) { 
+	const url = "https://www.amiiboapi.com/api/amiibo/?amiiboSeries=" + key;
+	fetch(url)
+		.then(function(response) {
+			return response.json();
+		}).then(function(json) {
+			let results = '<div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">';
+			json.amiibo.forEach(amiibo => {
+				results += `<img class="" alt="${amiibo.amiiboSeries}" src="${amiibo.image}"/>`;
+			})
+			results += '</div>';
+			document.getElementById("results").innerHTML = results;
+			document.getElementById("no-results").style.display = "none";
+		});
+}
+
+function gettypeInfo(key) { 
+	const url = "https://www.amiiboapi.com/api/amiibo/?type=" + key;
+	fetch(url)
+		.then(function(response) {
+			return response.json();
+		}).then(function(json) {
+			let results = '<div class="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">';
+			json.amiibo.forEach(amiibo => {
+				results += `<img class="" alt="${amiibo.amiiboSeries}" src="${amiibo.image}"/>`;
+			})
+			results += '</div>';
+			document.getElementById("results").innerHTML = results;
+			document.getElementById("no-results").style.display = "none";
+		});
+}
+
+document.getElementById("search-submit").addEventListener("click", event => {
+	debugger;
+	event.preventDefault();
+	const characterSearch = document.getElementById("search-input").value;
+	filteredMainList = mainList.filter(character => character.name.includes(characterSearch));
+	let results = '<div class="h-full">';
+	filteredMainList.forEach(character => {
+		const key = 'character' + character.key;
+		results += `<button class="block pl-3 py-1 hover:bg-charleston-green hover:text-tea-green w-full" id="${key}" onclick="getCharacterInfo('${key}')">${character.name}</button>`;
+	})
+	results += "</div>";
+	document.getElementById("left-nav-bar").innerHTML = results;
+});

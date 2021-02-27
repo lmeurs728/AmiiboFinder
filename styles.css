@@ -14,3 +14,74 @@ h1 {
 .w-50 {
 	width: 50px;
 }
+
+.bg-charleston-green {
+	background-color: #2E3532;
+}
+
+.bg-antique-ruby {
+	background-color: #8B2635;
+}
+
+.bg-alabaster {
+	background-color: #E0E2DB;
+}
+
+.bg-timberwolf {
+	background-color: #D2D4C8;
+}
+
+.bg-tea-green {
+	background-color: #D3EFBD;
+}
+
+
+
+.text-charleston-green {
+	color: #2E3532;
+}
+
+.text-antique-ruby {
+	color: #8B2635;
+}
+
+.text-alabaster {
+	color: #E0E2DB;
+}
+
+.text-timberwolf {
+	color: #D2D4C8;
+}
+
+.text-tea-green {
+	color: #D3EFBD;
+}
+
+
+.border-charleston-green {
+	border-color: #2E3532;
+}
+
+.border-antique-ruby {
+	border-color: #8B2635;
+}
+
+.border-alabaster {
+	border-color: #E0E2DB;
+}
+
+.border-timberwolf {
+	border-color: #D2D4C8;
+}
+
+.border-tea-green {
+	border-color: #D3EFBD;
+}
+
+.hover\:text-tea-green:hover {
+	color: #D3EFBD;
+}
+
+.hover\:bg-charleston-green:hover {
+	background-color: #2E3532;
+};
