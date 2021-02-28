@@ -1,5 +1,11 @@
 var mainList;
-var mainQueryType;
+var mainQueryType = 'character';
+var mainKey;
+
+window.addEventListener('resize', function() {
+	getNames(mainQueryType)
+	if (mainKey) getInfo(mainKey, mainQueryType);
+})
 
 function getNames(event) {
 	var queryType = typeof event === "string" ? event : event ? event.value : 'character';
@@ -26,6 +32,7 @@ function getNames(event) {
 }
 
 function getInfo(key, queryType) {
+	mainKey = key;
 	if (window.innerWidth < 640) { //Mobile view
 		let navBox = document.getElementById("nav-box");
 		navBox.style.width = "auto";
