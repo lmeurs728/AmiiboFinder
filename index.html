@@ -19,21 +19,27 @@
 		<div class="flex flex-grow">
 			<form class="sm:flex text-center sm:text-right my-2 sm:my-0">
 				<input id="search-input" class="p-2 border border-gray-500 mr-2 rounded mt-2 sm:mt-0" type="text"></input>
-				<input id="search-submit" class="bg-green-700 text-white p-2 rounded shadow-md" type="submit" value="Search "></input>
+				<input id="search-submit" class="bg-green-700 text-alabaster p-2 rounded shadow-md" type="submit" value="Search "></input>
 			</form>
 		</div>
-		<div class="flex justify-end font-bold text-charleston-green text-2xl">
-			<p class="cursor-pointer sm:block" onclick="getNames('character')">Character/</p>
-			<p class="cursor-pointer sm:block" onclick="getNames('amiiboseries')">Amiibo Series/</p>
-			<p class="cursor-pointer sm:block" onclick="getNames('gameseries')">Game Series/</p>
-			<p class="cursor-pointer sm:block" onclick="getNames('type')">Type</p>
+		<div class="hidden sm:flex justify-end font-bold text-charleston-green text-2xl">
+			<p class="cursor-pointer" onclick="getNames('character')">Character/</p>
+			<p class="cursor-pointer" onclick="getNames('amiiboseries')">Amiibo Series/</p>
+			<p class="cursor-pointer" onclick="getNames('gameseries')">Game Series/</p>
+			<p class="cursor-pointer" onclick="getNames('type')">Type</p>
 		</div>
+		<select class="block sm:hidden" onchange="getNames(this)" name="searchOptions" id="options">
+			<option value="character">Character</option>
+			<option value="amiiboseries">Amiibo Series</option>
+			<option value="gameseries">Game Series</option>
+			<option value="type">Type</option>
+		</select>
 	</header>
 
 	<div class="flex-grow flex flex-col">
 		<div class="flex flex-grow justify-center">
-			<div class="bg-timberwolf h-full text-charleston-green w-52">
-				<div id="left-nav-bar"></div>
+			<div class="bg-timberwolf h-full text-charleston-green w-52" id="nav-box">
+				<nav id="left-nav-bar"></nav>
 			</div>
 			<div class="flex-grow flex flex-col bg-white rounded-lg">
 				<p id="no-results" class="flex-grow text-center mt-4">No results, Click on a name!</p>
